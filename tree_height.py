@@ -40,18 +40,18 @@ def main():
         parents = list(map(int, input().split()))
     else:
         file_name = input()
+        path = './test/'
+        file_name_full = file_name + path
         while 'a' in file_name:
-            file_name = input("Can't contain letter 'a' ")
-        file_path = os.path.join("folder_name", file_name)
-
+            file_name_full = input("Can't contain letter 'a' ")
         try:
-            with open (file_path, 'r') as file:
+            with open (file_name_full, 'r') as file:
                 n = int(file.readline().strip())
                 parents = list(map(int, file.readline().strip().split()))
         except FileNotFoundError:
             print("File not found")
 
-    print(compute_height(n,parents))
+    print(compute_height(n, parents))
 
 
 if __name__ == '__main__': 
