@@ -30,11 +30,11 @@ def compute_height(n, parents):
 
 
 def main():
-    mode = input("F or I: ")
+    mode = input("F or I: ").strip()
 
     if mode == 'I':
         n = int(input().strip())
-        parents = np.array(list(map(int, input().split())))
+        parents = list(map(int, input().split()))
 
     else:
         file_name = input().strip()
@@ -42,7 +42,7 @@ def main():
             try:
                 with open('test/' + file_name, 'r') as file:
                     n = int(file.readline())
-                    parents = np.array(list(map(int, file.readline().split())))
+                    parents = list(map(int, file.readline().split()))
             except Exception as ex:
                 print("File not found", str(ex))
                 return
