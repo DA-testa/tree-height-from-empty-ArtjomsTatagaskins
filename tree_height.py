@@ -31,11 +31,11 @@ def compute_height(n, parents):
 
 
 def main():
-    mode = input("K or F input").upper()
-    while mode not in ('K', 'F'):
+    mode = input("I or F input").upper()
+    while mode not in ('I', 'F'):
         mode = input("Invalid mode").upper()
 
-    if mode == 'K':
+    if mode == 'I':
         n = int(input())
         parents = list(map(int, input().split()))
     else:
