@@ -46,7 +46,7 @@ def main():
                     n = int(file.readline())
                     parents = list(map(int, file.readline().split()))
             except Exception as ex:
-                print("File not found", str(e))
+                print("File not found", str(ex))
                 return
 
         else:
