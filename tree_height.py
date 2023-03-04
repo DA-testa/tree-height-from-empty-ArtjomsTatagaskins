@@ -31,12 +31,11 @@ def compute_height(n, parents):
 
 def main():
     mode = input("F or I: ").upper()
-    while mode not in ('I', 'F'):
-        mode = input("Invalid mode").upper()
 
     if mode == 'I':
         n = int(input())
         parents = list(map(int, input().split()))
+
     else:
         file_name = input()
         path = './test/'
@@ -49,6 +48,7 @@ def main():
             except FileNotFoundError:
                 print("File not found")
                 return
+                
         else:
             print("Can't contain letter a")
 
