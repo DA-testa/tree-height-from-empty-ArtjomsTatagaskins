@@ -39,7 +39,7 @@ def main():
     else:
         file_name = input()
         path = './test/'
-        file_name_full = file_name + path
+        file_name_full = path + file_name
         if 'a' not in file_name:
             try:
                 with open (file_name_full, 'r') as file:
