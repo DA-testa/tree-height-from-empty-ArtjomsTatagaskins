@@ -31,7 +31,7 @@ def compute_height(n, parents):
 
 
 def main():
-    mode = input("I or F input").upper()
+    mode = input("F or I: ").upper()
     while mode not in ('I', 'F'):
         mode = input("Invalid mode").upper()
 
@@ -39,7 +39,7 @@ def main():
         n = int(input())
         parents = list(map(int, input().split()))
     else:
-        file_name = input("File name: ")
+        file_name = input()
         while 'a' in file_name:
             file_name = input("Can't contain letter 'a' ")
         file_path = os.path.join("folder_name", file_name)
