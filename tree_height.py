@@ -30,10 +30,27 @@ def compute_height(n, parents):
 
 
 def main():
-    n = int(input())
-    parents = list(map(int, input().split()))
-    print(compute_height(n, parents))
-    return
+    mode = input("K or F input").upper()
+    while mode not in ('K', 'F'):
+        mode = input("Invalid mode").upper()
+
+    if mode == 'K':
+        n = int(input())
+        parents = list(map(int, input().split()))
+    else:
+        file_name = input("File name: ")
+        while 'a' in file_name:
+            file_name = input("Can't contain letter 'a' ")
+        file_path = os.path.join("folder_name", file_name)
+
+        try:
+            with open (file_path, 'r') as file:
+                n = int(file.readline().strip())
+                parents = list(map(int, file.readline().strip().split()))
+        except FileNotFoundError:
+            print("File not found")
+
+    print(compute_height(n,parents))
 
 
 if __name__ == '__main__': 
