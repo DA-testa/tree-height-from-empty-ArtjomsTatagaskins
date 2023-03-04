@@ -33,13 +33,13 @@ def main():
     mode = input("F or I: ")
 
     if mode == 'I':
-        n = int(input())
+        n = int(input().strip())
         parents = list(map(int, input().split()))
 
     else:
-        file_name =input()
+        file_name = input().strip()
         path = './test/'
-        file_name_full= path + file_name
+        file_name_full = path + file_name
         if 'a' not in file_name:
             try:
                 with open(file_name_full) as file:
