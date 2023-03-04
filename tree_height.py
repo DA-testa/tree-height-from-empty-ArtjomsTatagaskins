@@ -2,7 +2,7 @@
 
 import sys
 import threading
-import numpy
+import numpy as np
 
 
 def compute_height(n, parents):
@@ -34,7 +34,7 @@ def main():
 
     if mode == 'I':
         n = int(input().strip())
-        parents = list(map(int, input().split()))
+        parents = np.array(list(map(int, input().split())))
 
     else:
         file_name = input().strip()
@@ -42,7 +42,7 @@ def main():
             try:
                 with open('test/' + file_name, 'r') as file:
                     n = int(file.readline())
-                    parents = list(map(int, file.readline().split()))
+                    parents = np.array(list(map(int, file.readline().split())))
             except Exception as ex:
                 print("File not found", str(ex))
                 return
