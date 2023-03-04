@@ -30,7 +30,7 @@ def compute_height(n, parents):
 
 
 def main():
-    mode = input("F or I: ").upper()
+    mode = input("F or I: ")
 
     if mode == 'I':
         n = int(input())
@@ -43,18 +43,21 @@ def main():
         if 'a' not in file_name:
             try:
                 with open (file_name_full, 'r') as file:
-                    n = int(file.readline().strip())
-                    parents = list(map(int, file.readline().strip().split()))
+                    n = int(file.readline())
+                    parents = list(map(int, file.readline().split()))
             except FileNotFoundError:
                 print("File not found")
                 return
-                
+
         else:
             print("Can't contain letter a")
+            return
 
     print(compute_height(n, parents))
 
 
 if __name__ == '__main__': 
     sys.setrecursionlimit(10**7)  
+    threading.stack_size(2**27)
+    threading.Thread(targer=main).start()
     main()
