@@ -45,8 +45,8 @@ def main():
                 with open (file_name_full, 'r') as file:
                     n = int(file.readline())
                     parents = list(map(int, file.readline().split()))
-            except FileNotFoundError:
-                print("File not found")
+            except Exception as ex:
+                print("File not found", str(e))
                 return
 
         else:
@@ -59,5 +59,5 @@ def main():
 if __name__ == '__main__': 
     sys.setrecursionlimit(10**7)  
     threading.stack_size(2**27)
-    threading.Thread(targer=main).start()
+    threading.Thread(target=main).start()
     main()
