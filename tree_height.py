@@ -40,7 +40,7 @@ def main():
         file_name = input().strip()
         if 'a' not in file_name:
             try:
-                with open('test/' + file_name) as file:
+                with open('test/' + file_name, 'r') as file:
                     n = int(file.readline())
                     parents = list(map(int, file.readline().split()))
             except Exception as ex:
