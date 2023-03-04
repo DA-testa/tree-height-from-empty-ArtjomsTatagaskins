@@ -3,7 +3,6 @@
 import sys
 import threading
 import numpy
-import os
 
 
 def compute_height(n, parents):
@@ -42,18 +41,20 @@ def main():
         file_name = input()
         path = './test/'
         file_name_full = file_name + path
-        while 'a' in file_name:
-            file_name_full = input("Can't contain letter 'a' ")
-        try:
-            with open (file_name_full, 'r') as file:
-                n = int(file.readline().strip())
-                parents = list(map(int, file.readline().strip().split()))
-        except FileNotFoundError:
-            print("File not found")
+        if 'a' not in file_name:
+            try:
+                with open (file_name_full, 'r') as file:
+                    n = int(file.readline().strip())
+                    parents = list(map(int, file.readline().strip().split()))
+            except FileNotFoundError:
+                print("File not found")
+                return
+        else:
+            print("Can't contain letter a")
 
     print(compute_height(n, parents))
 
 
 if __name__ == '__main__': 
-    sys.setrecursionlimit(10**7)  
+    sys.setrecursionlimit(10**7) F 
     main()
