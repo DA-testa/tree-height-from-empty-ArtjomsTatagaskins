@@ -38,11 +38,9 @@ def main():
 
     else:
         file_name = input().strip()
-        path = './test/'
-        file_name_full = path + file_name
         if 'a' not in file_name:
             try:
-                with open(file_name_full) as file:
+                with open('test/' + file_name) as file:
                     n = int(file.readline())
                     parents = list(map(int, file.readline().split()))
             except Exception as ex:
